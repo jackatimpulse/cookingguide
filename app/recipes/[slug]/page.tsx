@@ -73,39 +73,8 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
       </div>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12">
-        {/* Left: description + steps */}
-        <div>
-          <p className="text-[#a0a0a0] text-base leading-relaxed mb-10 max-w-prose">
-            {recipe.description}
-          </p>
-
-          {/* Chef tip */}
-          <div className="border-l-2 border-[#e8410a] pl-5 mb-12 bg-[#111111] py-4 pr-4 rounded-r-sm">
-            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#e8410a] mb-1.5">Pro tip</p>
-            <p className="text-sm text-[#a0a0a0] leading-relaxed">{recipe.tip}</p>
-          </div>
-
-          {/* Method */}
-          <div>
-            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#5a5a5a] mb-6">Method</p>
-            <ol className="space-y-8">
-              {recipe.steps.map((step, i) => (
-                <li key={i} className="grid grid-cols-[32px_1fr] gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-sm bg-[#1c1c1c] flex items-center justify-center">
-                    <span className="text-xs font-medium text-[#5a5a5a]">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold mb-1.5">{step.title}</h3>
-                    <p className="text-sm text-[#a0a0a0] leading-relaxed">{step.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-
-        {/* Right: ingredients */}
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12">
+        {/* Left: ingredients */}
         <div>
           <div className="sticky top-20">
             <div className="bg-[#111111] rounded-sm p-6">
@@ -138,6 +107,38 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
             </div>
           </div>
         </div>
+
+        {/* Right: description + steps */}
+        <div>
+          <p className="text-[#a0a0a0] text-base leading-relaxed mb-10 max-w-prose">
+            {recipe.description}
+          </p>
+
+          {/* Chef tip */}
+          <div className="border-l-2 border-[#e8410a] pl-5 mb-12 bg-[#111111] py-4 pr-4 rounded-r-sm">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#e8410a] mb-1.5">Pro tip</p>
+            <p className="text-sm text-[#a0a0a0] leading-relaxed">{recipe.tip}</p>
+          </div>
+
+          {/* Method */}
+          <div>
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#5a5a5a] mb-6">Method</p>
+            <ol className="space-y-8">
+              {recipe.steps.map((step, i) => (
+                <li key={i} className="grid grid-cols-[32px_1fr] gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-sm bg-[#1c1c1c] flex items-center justify-center">
+                    <span className="text-xs font-medium text-[#5a5a5a]">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold mb-1.5">{step.title}</h3>
+                    <p className="text-sm text-[#a0a0a0] leading-relaxed">{step.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
       </div>
 
       {/* Back */}
