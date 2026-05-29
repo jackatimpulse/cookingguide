@@ -1,7 +1,10 @@
+"use client";
+import { useState } from "react";
 import { temperatures, TempEntry } from "../data/temperatures";
 import TempCard from "./TempCard";
 
 const CATEGORIES = ["Delicate", "Gentle", "Medium", "Hot", "Extreme"] as const;
+type Category = typeof CATEGORIES[number];
 
 const CATEGORY_RANGE: Record<string, string> = {
   Delicate: "88–175°F",
@@ -19,20 +22,23 @@ const CATEGORY_COLOR: Record<string, string> = {
   Extreme: "text-[#e8410a]",
 };
 
-const CATEGORY_BG: Record<string, string> = {
-  Delicate: "bg-[#60a5fa]/10 border-[#60a5fa]/20",
-  Gentle: "bg-[#34d399]/10 border-[#34d399]/20",
-  Medium: "bg-[#fbbf24]/10 border-[#fbbf24]/20",
-  Hot: "bg-[#f97316]/10 border-[#f97316]/20",
-  Extreme: "bg-[#e8410a]/10 border-[#e8410a]/20",
+const CATEGORY_BAR: Record<string, string> = {
+  Delicate: "bg-[#60a5fa]",
+  Gentle: "bg-[#34d399]",
+  Medium: "bg-[#fbbf24]",
+  Hot: "bg-[#f97316]",
+  Extreme: "bg-[#e8410a]",
 };
 
-
 export default function TemperatureGuidePage() {
+  const [active, setActive] = useState<Category | null>(null);
+
   const grouped = CATEGORIES.reduce<Record<string, TempEntry[]>>((acc, cat) => {
     acc[cat] = temperatures.filter((t) => t.category === cat).sort((a, b) => a.tempF - b.tempF);
     return acc;
   }, {} as Record<string, TempEntry[]>);
+
+  const visibleCategories = active ? [active] : CATEGORIES;
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
@@ -43,29 +49,47 @@ export default function TemperatureGuidePage() {
         Use this as your reference — dial it in, cook with certainty.
       </p>
 
-      {/* Scale legend */}
+      {/* Clickable scale legend */}
       <div className="flex items-center gap-0 mb-12 mt-8 max-w-2xl">
-        {CATEGORIES.map((cat) => (
-          <div key={cat} className="flex-1">
-            <div className={`h-1 ${
-              cat === "Delicate" ? "bg-[#60a5fa]" :
-              cat === "Gentle" ? "bg-[#34d399]" :
-              cat === "Medium" ? "bg-[#fbbf24]" :
-              cat === "Hot" ? "bg-[#f97316]" : "bg-[#e8410a]"
-            }`} />
-            <p className={`text-[0.5rem] tracking-[0.15em] uppercase mt-1.5 ${CATEGORY_COLOR[cat]}`}>{cat}</p>
-            <p className="text-[0.5rem] text-[#5a5a5a]">{CATEGORY_RANGE[cat]}</p>
-          </div>
-        ))}
+        {CATEGORIES.map((cat) => {
+          const isActive = active === cat;
+          const isDimmed = active !== null && !isActive;
+          return (
+            <button
+              key={cat}
+              onClick={() => setActive(isActive ? null : cat)}
+              className={`flex-1 text-left transition-opacity focus:outline-none group ${isDimmed ? "opacity-30" : "opacity-100"}`}
+              title={isActive ? `Show all` : `Filter: ${cat}`}
+            >
+              <div className={`h-1 ${CATEGORY_BAR[cat]} transition-all ${isActive ? "h-1.5" : "group-hover:h-1.5"}`} />
+              <p className={`text-[0.5rem] tracking-[0.15em] uppercase mt-1.5 ${CATEGORY_COLOR[cat]}`}>{cat}</p>
+              <p className="text-[0.5rem] text-[#5a5a5a]">{CATEGORY_RANGE[cat]}</p>
+            </button>
+          );
+        })}
       </div>
+
+      {/* Active filter pill */}
+      {active && (
+        <div className="flex items-center gap-3 mb-8 -mt-4">
+          <span className={`text-xs ${CATEGORY_COLOR[active]}`}>Showing: {active}</span>
+          <button
+            onClick={() => setActive(null)}
+            className="text-[0.6rem] tracking-widest uppercase text-[#5a5a5a] hover:text-[#fafafa] transition-colors border border-[#1c1c1c] px-2 py-0.5 rounded-sm"
+          >
+            Clear
+          </button>
+        </div>
+      )}
 
       {/* Sections */}
       <div className="space-y-16">
-        {CATEGORIES.map((cat) => (
+        {visibleCategories.map((cat) => (
           <section key={cat}>
             <div className="flex items-baseline gap-4 mb-6 border-b border-[#1c1c1c] pb-4">
               <h2 className={`text-xl font-semibold tracking-tight ${CATEGORY_COLOR[cat]}`}>{cat}</h2>
               <span className="text-sm text-[#5a5a5a]">{CATEGORY_RANGE[cat]}</span>
+              <span className="text-xs text-[#5a5a5a] ml-auto">{grouped[cat].length} entries</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               {grouped[cat].map((entry) => (
