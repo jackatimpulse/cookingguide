@@ -1,0 +1,147 @@
+export interface TempEntry {
+  task: string;
+  tempF: number;
+  tempC: number;
+  why: string;
+  tips: string;
+  category: "Delicate" | "Gentle" | "Medium" | "Hot" | "Extreme";
+}
+
+export const temperatures: TempEntry[] = [
+  {
+    task: "Melting chocolate",
+    tempF: 90,
+    tempC: 32,
+    why: "Chocolate seizes and scorches above 115°F. Holding at 90°F gives a gentle melt without breaking the cocoa butter structure.",
+    tips: "Use a stainless bowl or double-boiler setup. Stir regularly. Don't let any water contact the chocolate.",
+    category: "Delicate",
+  },
+  {
+    task: "Tempering chocolate",
+    tempF: 88,
+    tempC: 31,
+    why: "Working temperature for tempered dark chocolate. Seed with finely chopped tempered chocolate to form stable Form V crystals.",
+    tips: "Set the cooktop to 88°F and hold the chocolate in a metal bowl directly on the burner. Check with an instant-read thermometer to verify.",
+    category: "Delicate",
+  },
+  {
+    task: "Hollandaise & béarnaise",
+    tempF: 145,
+    tempC: 63,
+    why: "Egg yolks begin to cook at 149°F. Holding at 145°F lets you build an emulsion without scrambling the eggs.",
+    tips: "Use a stainless bowl. Whisk continuously. If you feel it tightening fast, lift the bowl off briefly. Keep butter warm separately.",
+    category: "Delicate",
+  },
+  {
+    task: "Custard & crème anglaise",
+    tempF: 170,
+    tempC: 77,
+    why: "The nappe point — the custard coats the back of a spoon and a finger drawn across leaves a clean line. Above 185°F it curdles.",
+    tips: "Stir constantly with a silicone spatula. As soon as it coats the spoon, strain immediately into an ice bath.",
+    category: "Delicate",
+  },
+  {
+    task: "Poaching eggs",
+    tempF: 180,
+    tempC: 82,
+    why: "A gentle sub-simmer that sets the white slowly and leaves the yolk fully runny. Vigorous boiling tears the egg apart.",
+    tips: "Add a splash of white vinegar to the water. Use the freshest eggs you can find — older eggs spread more in water.",
+    category: "Gentle",
+  },
+  {
+    task: "Poaching fish",
+    tempF: 175,
+    tempC: 79,
+    why: "Delicate proteins like salmon and halibut are best cooked gently. A slow poach renders them silky rather than rubbery.",
+    tips: "Use a court bouillon or olive oil poach. The fish is done when it flakes under gentle pressure — no thermometer needed.",
+    category: "Gentle",
+  },
+  {
+    task: "Caramel (light)",
+    tempF: 320,
+    tempC: 160,
+    why: "Light amber caramel — sweet, barely bitter, ideal for crème brûlée and pralines.",
+    tips: "Don't stir once the sugar is dissolved. Swirl the pan to even out colour. Have your cream warm and ready before it hits the target.",
+    category: "Medium",
+  },
+  {
+    task: "Caramel (dark)",
+    tempF: 370,
+    tempC: 188,
+    why: "Deep amber with complex bittersweet flavour. Ideal for sauces, tarts, and ice cream.",
+    tips: "The colour change from 350°F to 380°F happens fast. Watch it — not a time to check your phone.",
+    category: "Hot",
+  },
+  {
+    task: "Sautéing vegetables",
+    tempF: 325,
+    tempC: 163,
+    why: "Hot enough to brown but not scorch. Onions, peppers, mushrooms — all benefit from a steady medium heat that caramelises rather than burns.",
+    tips: "Don't crowd the pan. If you hear a sizzle, you're at the right heat. If it's screaming, drop the temperature.",
+    category: "Medium",
+  },
+  {
+    task: "Pan-searing chicken",
+    tempF: 375,
+    tempC: 190,
+    why: "Skin needs sustained heat to render fat and achieve colour without drying the interior. Too low and the skin steams; too high and it burns before the inside cooks.",
+    tips: "Dry the skin completely before cooking. Place skin-side down and don't touch it for 4–5 minutes. The protein will release naturally when it's ready.",
+    category: "Hot",
+  },
+  {
+    task: "Pan-searing steak",
+    tempF: 450,
+    tempC: 232,
+    why: "Maillard reaction peaks at high temperature. A cast iron or carbon steel pan at 450°F will form a deep crust in 60–90 seconds per side without overcooking the interior.",
+    tips: "Pat the steak bone-dry. Season generously with salt. Let the pan preheat fully — 5 minutes in temperature mode at 450°F. The smoke is normal; open a window.",
+    category: "Extreme",
+  },
+  {
+    task: "Wok-style stir fry",
+    tempF: 450,
+    tempC: 232,
+    why: "Wok hei — the breath of the wok — requires extreme, fast heat. At 450°F you can achieve the same rapid charring of vegetables and protein that a commercial wok burner delivers.",
+    tips: "Use a carbon steel pan, not a wok (which won't sit flat on an induction surface). Work in small batches. Add oil just before adding food.",
+    category: "Extreme",
+  },
+  {
+    task: "Deep frying",
+    tempF: 350,
+    tempC: 177,
+    why: "The standard frying temperature for most foods — fries, fried chicken, donuts. At this temperature food browns without absorbing excess oil.",
+    tips: "Use Active Temperature Sensing to hold oil temperature precisely. Don't add too much food at once — it drops the oil temperature and leads to greasy results. Use a thermometer to verify.",
+    category: "Hot",
+  },
+  {
+    task: "Shallow frying",
+    tempF: 375,
+    tempC: 190,
+    why: "Slightly hotter than deep frying to compensate for the smaller oil volume. Ideal for pan-fried fish, schnitzel, and latkes.",
+    tips: "Heat enough oil to come halfway up the food. Flip once — wait until the bottom is fully coloured before turning.",
+    category: "Hot",
+  },
+  {
+    task: "Reducing stocks & sauces",
+    tempF: 200,
+    tempC: 93,
+    why: "A bare simmer drives evaporation without scorching the sugars and proteins in the stock. Boiling vigorously makes stocks cloudy and can make them bitter.",
+    tips: "Set 200°F and walk away. The sensor will maintain a gentle simmer regardless of evaporation. Come back in 45 minutes.",
+    category: "Gentle",
+  },
+  {
+    task: "Rendering fat (bacon, duck)",
+    tempF: 300,
+    tempC: 149,
+    why: "Fat renders slowly at lower temperatures, leaving the meat tender. High heat renders the fat faster but can tighten the protein before the fat has fully escaped.",
+    tips: "Start in a cold pan. Set 300°F. The fat will render gradually and you'll end up with evenly cooked bacon that isn't tough.",
+    category: "Medium",
+  },
+  {
+    task: "Boiling water (rapid)",
+    tempF: 212,
+    tempC: 100,
+    why: "Use power mode P10 for maximum speed — under 40 seconds for a full kettle. Temperature mode isn't needed here; just boil.",
+    tips: "Switch to power mode P10. The integrated battery delivers the full 10,000W burst to get water boiling in record time.",
+    category: "Gentle",
+  },
+];
