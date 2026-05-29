@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Nav() {
@@ -9,8 +10,13 @@ export default function Nav() {
     <header className="sticky top-0 z-50 border-b border-[#1c1c1c] bg-[#0a0a0a]/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="text-[#e8410a] text-lg font-bold leading-none">✦</span>
-          <span className="text-sm font-semibold tracking-tight">Impulse</span>
+          <Image
+            src="/impulse-logo.svg"
+            alt="Impulse"
+            width={80}
+            height={20}
+            className="brightness-0 invert"
+          />
           <span className="text-[#5a5a5a] text-sm">/ Cooking Guide</span>
         </Link>
 
