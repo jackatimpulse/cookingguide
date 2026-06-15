@@ -1,44 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --accent: #e8410a;
-  --gray-100: #f4f4f4;
-  --gray-200: #e8e8e8;
-  --gray-400: #a0a0a0;
-  --gray-600: #5a5a5a;
-  --gray-800: #1c1c1c;
-  --gray-900: #111111;
+  --bg: #F4F5EF;
+  --surface: #ffffff;
+  --dark: #1F2E2D;
+  --accent: #205C49;
+  --accent-light: #205C4914;
+  --accent-border: #205C4933;
+  --muted: #1F2E2D99;
+  --subtle: #1F2E2D40;
+  --border: #1F2E2D1A;
+  --border-strong: #1F2E2D26;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --color-background: var(--bg);
+  --color-foreground: var(--dark);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--dark);
   font-family: "Inter", system-ui, sans-serif;
   min-height: 100vh;
 }
 
-::selection {
-  background-color: #e8410a;
-  color: #fafafa;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
-html {
-  scroll-behavior: smooth;
+::selection {
+  background-color: #205C49;
+  color: #F4F5EF;
 }

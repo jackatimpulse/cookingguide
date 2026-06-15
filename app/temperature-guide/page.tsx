@@ -8,26 +8,34 @@ type Category = typeof CATEGORIES[number];
 
 const CATEGORY_RANGE: Record<string, string> = {
   Delicate: "88–175°F",
-  Gentle: "175–212°F",
-  Medium: "300–325°F",
-  Hot: "350–400°F",
-  Extreme: "450°F",
+  Gentle:   "175–212°F",
+  Medium:   "300–325°F",
+  Hot:      "350–400°F",
+  Extreme:  "450°F",
 };
 
 const CATEGORY_COLOR: Record<string, string> = {
   Delicate: "text-[#60a5fa]",
-  Gentle: "text-[#34d399]",
-  Medium: "text-[#fbbf24]",
-  Hot: "text-[#f97316]",
-  Extreme: "text-[#e8410a]",
+  Gentle:   "text-[#34d399]",
+  Medium:   "text-[#ca8a04]",
+  Hot:      "text-[#ea580c]",
+  Extreme:  "text-[#dc2626]",
 };
 
 const CATEGORY_BAR: Record<string, string> = {
   Delicate: "bg-[#60a5fa]",
-  Gentle: "bg-[#34d399]",
-  Medium: "bg-[#fbbf24]",
-  Hot: "bg-[#f97316]",
-  Extreme: "bg-[#e8410a]",
+  Gentle:   "bg-[#34d399]",
+  Medium:   "bg-[#fbbf24]",
+  Hot:      "bg-[#f97316]",
+  Extreme:  "bg-[#ef4444]",
+};
+
+const CATEGORY_ACTIVE_BORDER: Record<string, string> = {
+  Delicate: "border-b-2 border-[#60a5fa]",
+  Gentle:   "border-b-2 border-[#34d399]",
+  Medium:   "border-b-2 border-[#fbbf24]",
+  Hot:      "border-b-2 border-[#f97316]",
+  Extreme:  "border-b-2 border-[#ef4444]",
 };
 
 export default function TemperatureGuidePage() {
@@ -42,15 +50,15 @@ export default function TemperatureGuidePage() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <p className="text-[0.65rem] tracking-[0.3em] uppercase text-[#e8410a] mb-3">02</p>
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Temperature Guide</h1>
-      <p className="text-[#5a5a5a] text-sm max-w-xl mb-4">
+      <p className="text-xs tracking-[0.25em] uppercase text-[#205C49] mb-3">02</p>
+      <h1 className="font-heading text-3xl md:text-4xl font-light mb-3 text-[#1F2E2D]">Temperature Guide</h1>
+      <p className="text-[#1F2E2D]/50 text-sm max-w-xl mb-4">
         Every cooking task has an ideal temperature. The Impulse holds yours to within ±1°F.
-        Use this as your reference — dial it in, cook with certainty.
+        Click a category to filter.
       </p>
 
       {/* Clickable scale legend */}
-      <div className="flex items-center gap-0 mb-12 mt-8 max-w-2xl">
+      <div className="flex items-stretch gap-0 mb-10 mt-8 max-w-2xl bg-white border border-[#1F2E2D]/10 rounded-[10px] overflow-hidden">
         {CATEGORIES.map((cat) => {
           const isActive = active === cat;
           const isDimmed = active !== null && !isActive;
@@ -58,12 +66,14 @@ export default function TemperatureGuidePage() {
             <button
               key={cat}
               onClick={() => setActive(isActive ? null : cat)}
-              className={`flex-1 text-left transition-opacity focus:outline-none group ${isDimmed ? "opacity-30" : "opacity-100"}`}
-              title={isActive ? `Show all` : `Filter: ${cat}`}
+              className={`flex-1 text-left px-3 py-3 transition-all focus:outline-none group border-r last:border-r-0 border-[#1F2E2D]/8 ${
+                isDimmed ? "opacity-30" : "opacity-100"
+              } ${isActive ? CATEGORY_ACTIVE_BORDER[cat] : ""}`}
+              title={isActive ? "Show all" : `Filter: ${cat}`}
             >
-              <div className={`h-1 ${CATEGORY_BAR[cat]} transition-all ${isActive ? "h-1.5" : "group-hover:h-1.5"}`} />
-              <p className={`text-[0.5rem] tracking-[0.15em] uppercase mt-1.5 ${CATEGORY_COLOR[cat]}`}>{cat}</p>
-              <p className="text-[0.5rem] text-[#5a5a5a]">{CATEGORY_RANGE[cat]}</p>
+              <div className={`h-0.5 w-full rounded-full mb-2 ${CATEGORY_BAR[cat]} ${isActive ? "opacity-100" : "opacity-40 group-hover:opacity-80"} transition-opacity`} />
+              <p className={`text-[0.5rem] tracking-[0.15em] uppercase font-medium ${CATEGORY_COLOR[cat]}`}>{cat}</p>
+              <p className="text-[0.5rem] text-[#1F2E2D]/30 mt-0.5">{CATEGORY_RANGE[cat]}</p>
             </button>
           );
         })}
@@ -71,11 +81,13 @@ export default function TemperatureGuidePage() {
 
       {/* Active filter pill */}
       {active && (
-        <div className="flex items-center gap-3 mb-8 -mt-4">
-          <span className={`text-xs ${CATEGORY_COLOR[active]}`}>Showing: {active}</span>
+        <div className="flex items-center gap-3 mb-8">
+          <span className={`text-xs font-medium ${CATEGORY_COLOR[active]}`}>
+            {active} · {CATEGORY_RANGE[active]}
+          </span>
           <button
             onClick={() => setActive(null)}
-            className="text-[0.6rem] tracking-widest uppercase text-[#5a5a5a] hover:text-[#fafafa] transition-colors border border-[#1c1c1c] px-2 py-0.5 rounded-sm"
+            className="text-[0.6rem] tracking-widest uppercase text-[#1F2E2D]/40 hover:text-[#1F2E2D] transition-colors border border-[#1F2E2D]/15 px-2 py-0.5 rounded-md"
           >
             Clear
           </button>
@@ -83,15 +95,15 @@ export default function TemperatureGuidePage() {
       )}
 
       {/* Sections */}
-      <div className="space-y-16">
+      <div className="space-y-14">
         {visibleCategories.map((cat) => (
           <section key={cat}>
-            <div className="flex items-baseline gap-4 mb-6 border-b border-[#1c1c1c] pb-4">
-              <h2 className={`text-xl font-semibold tracking-tight ${CATEGORY_COLOR[cat]}`}>{cat}</h2>
-              <span className="text-sm text-[#5a5a5a]">{CATEGORY_RANGE[cat]}</span>
-              <span className="text-xs text-[#5a5a5a] ml-auto">{grouped[cat].length} entries</span>
+            <div className="flex items-baseline gap-4 mb-5 border-b border-[#1F2E2D]/10 pb-4">
+              <h2 className={`font-heading text-xl font-light ${CATEGORY_COLOR[cat]}`}>{cat}</h2>
+              <span className="text-sm text-[#1F2E2D]/30">{CATEGORY_RANGE[cat]}</span>
+              <span className="text-xs text-[#1F2E2D]/25 ml-auto">{grouped[cat].length} entries</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
               {grouped[cat].map((entry) => (
                 <TempCard key={entry.task} entry={entry} />
               ))}
