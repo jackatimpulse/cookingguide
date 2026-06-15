@@ -95,7 +95,6 @@ body {
   min-height: 100vh;
 }
 
-/* h1 — page heroes: Black upright */
 h1 {
   font-family: "Tiempos Fine", Georgia, serif;
   font-weight: 900;
@@ -103,15 +102,13 @@ h1 {
   letter-spacing: -0.025em;
 }
 
-/* h2 — section headings: Bold italic */
 h2 {
   font-family: "Tiempos Fine", Georgia, serif;
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: -0.015em;
 }
 
-/* h3 — card titles: Bold upright */
 h3 {
   font-family: "Tiempos Fine", Georgia, serif;
   font-weight: 700;
@@ -119,11 +116,10 @@ h3 {
   letter-spacing: -0.01em;
 }
 
-/* h4–h6 — captions / eyebrows: Light italic */
 h4, h5, h6 {
   font-family: "Tiempos Fine", Georgia, serif;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   letter-spacing: -0.005em;
 }
 
