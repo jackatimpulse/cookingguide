@@ -28,6 +28,35 @@
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url(/fonts/TiemposFine-LightItalic.woff2) format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url(/fonts/TiemposFine-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url(/fonts/TiemposFine-BoldItalic.woff2) format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url(/fonts/TiemposFine-Black.woff2) format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: "Tiempos Fine";
   src: url(/fonts/TiemposFine-BlackItalic.woff2) format("woff2");
@@ -41,12 +70,7 @@
   --surface: #ffffff;
   --dark: #1F2E2D;
   --accent: #205C49;
-  --accent-light: #205C4914;
-  --accent-border: #205C4933;
-  --muted: #1F2E2D99;
-  --subtle: #1F2E2D40;
   --border: #1F2E2D1A;
-  --border-strong: #1F2E2D26;
 }
 
 @theme inline {
@@ -71,11 +95,36 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1 — page heroes: Black upright */
+h1 {
   font-family: "Tiempos Fine", Georgia, serif;
   font-weight: 900;
+  font-style: normal;
+  letter-spacing: -0.025em;
+}
+
+/* h2 — section headings: Bold italic */
+h2 {
+  font-family: "Tiempos Fine", Georgia, serif;
+  font-weight: 700;
   font-style: italic;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+}
+
+/* h3 — card titles: Bold upright */
+h3 {
+  font-family: "Tiempos Fine", Georgia, serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.01em;
+}
+
+/* h4–h6 — captions / eyebrows: Light italic */
+h4, h5, h6 {
+  font-family: "Tiempos Fine", Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.005em;
 }
 
 ::selection {
