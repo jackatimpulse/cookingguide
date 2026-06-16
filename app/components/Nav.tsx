@@ -37,7 +37,7 @@ export default function Nav() {
               <Link
                 key={href}
                 href={href}
-                className={`text-xs tracking-widest uppercase transition-colors ${
+                className={`text-xs font-bold tracking-widest uppercase transition-colors ${
                   active ? "text-[#000000]" : "text-[#000000]/40 hover:text-[#000000]/70"
                 }`}
               >
