@@ -16,7 +16,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#1F2E2D]/10 bg-[#F4F5EF]/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-[#000000]/10 bg-[#F4F5EF]/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between gap-8">
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
@@ -26,8 +26,8 @@ export default function Nav() {
             height={18}
             className="brightness-0"
           />
-          <span className="text-[#1F2E2D]/20 select-none">|</span>
-          <span className="text-xs text-[#1F2E2D]/50 tracking-wide whitespace-nowrap">Cooking Guide</span>
+          <span className="text-[#000000]/20 select-none">|</span>
+          <span className="text-xs text-[#000000]/50 tracking-wide whitespace-nowrap">Cooking Guide</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -38,7 +38,7 @@ export default function Nav() {
                 key={href}
                 href={href}
                 className={`text-xs tracking-widest uppercase transition-colors ${
-                  active ? "text-[#1F2E2D]" : "text-[#1F2E2D]/40 hover:text-[#1F2E2D]/70"
+                  active ? "text-[#000000]" : "text-[#000000]/40 hover:text-[#000000]/70"
                 }`}
               >
                 {label}
@@ -48,7 +48,7 @@ export default function Nav() {
         </nav>
 
         <button
-          className="md:hidden text-[#1F2E2D]/50 hover:text-[#1F2E2D] shrink-0 p-2 -mr-2"
+          className="md:hidden text-[#000000]/50 hover:text-[#000000] shrink-0 p-2 -mr-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -63,13 +63,13 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-[#1F2E2D]/10 bg-[#F4F5EF] px-6 py-5 flex flex-col gap-1">
+        <div className="md:hidden border-t border-[#000000]/10 bg-[#F4F5EF] px-6 py-5 flex flex-col gap-1">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="text-sm tracking-widest uppercase text-[#1F2E2D]/50 hover:text-[#1F2E2D] transition-colors py-3 border-b border-[#1F2E2D]/8 last:border-0"
+              className="text-sm tracking-widest uppercase text-[#000000]/50 hover:text-[#000000] transition-colors py-3 border-b border-[#000000]/8 last:border-0"
             >
               {label}
             </Link>

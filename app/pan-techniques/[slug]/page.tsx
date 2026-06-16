@@ -24,7 +24,7 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
       {/* Hero */}
       <div className="relative h-[38vh] min-h-[240px] md:min-h-[300px] overflow-hidden">
         <Image src={technique.heroImage} alt={technique.title} fill priority className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1F2E2D]/80 via-[#1F2E2D]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 md:px-6 pb-6 md:pb-10">
           <div className="flex items-center gap-3 mb-3">
             <Link href="/pan-techniques" className="text-[0.6rem] tracking-widest uppercase text-white/40 hover:text-white transition-colors">
@@ -39,7 +39,7 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
       </div>
 
       {/* Meta bar */}
-      <div className="border-b border-[#1F2E2D]/10 bg-white">
+      <div className="border-b border-[#000000]/10 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex gap-5 md:gap-8 overflow-x-auto scrollbar-none">
           {[
             { label: "Pan", value: technique.pan },
@@ -47,8 +47,8 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
             { label: "Mode", value: `${technique.mode}` },
           ].map(({ label, value, accent }) => (
             <div key={label} className="shrink-0">
-              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#1F2E2D]/30">{label}</p>
-              <p className={`text-sm font-medium mt-0.5 ${accent ? "text-[#205C49]" : "text-[#1F2E2D]"}`}>{value}</p>
+              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#000000]/30">{label}</p>
+              <p className={`text-sm font-medium mt-0.5 ${accent ? "text-[#205C49]" : "text-[#000000]"}`}>{value}</p>
             </div>
           ))}
         </div>
@@ -58,18 +58,18 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 md:gap-12">
         {/* Main */}
         <div className="max-w-2xl">
-          <p className="text-[#1F2E2D]/50 text-sm leading-relaxed mb-10">{technique.description}</p>
+          <p className="text-[#000000]/50 text-sm leading-relaxed mb-10">{technique.description}</p>
 
-          <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#1F2E2D]/30 mb-6">Technique</p>
+          <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#000000]/30 mb-6">Technique</p>
           <div className="space-y-8">
             {technique.steps.map((step, i) => (
               <div key={i} className="grid grid-cols-[32px_1fr] gap-4">
-                <div className="w-8 h-8 rounded-md bg-[#1F2E2D]/5 flex items-center justify-center shrink-0">
-                  <span className="text-xs font-medium text-[#1F2E2D]/25">{String(i + 1).padStart(2, "0")}</span>
+                <div className="w-8 h-8 rounded-md bg-[#000000]/5 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-medium text-[#000000]/25">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <div className="border-b border-[#1F2E2D]/8 pb-8 last:border-0 last:pb-0">
-                  <h3 className="font-heading text-base font-light text-[#1F2E2D] mb-2">{step.heading}</h3>
-                  <p className="text-sm text-[#1F2E2D]/50 leading-relaxed">{step.body}</p>
+                <div className="border-b border-[#000000]/8 pb-8 last:border-0 last:pb-0">
+                  <h3 className="font-heading text-base font-light text-[#000000] mb-2">{step.heading}</h3>
+                  <p className="text-sm text-[#000000]/50 leading-relaxed">{step.body}</p>
                 </div>
               </div>
             ))}
@@ -85,11 +85,11 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
               <p className="text-xs text-[#205C49]/60 mt-0.5">{technique.mode} mode</p>
             </div>
 
-            <div className="bg-white border border-[#1F2E2D]/10 rounded-[10px] p-5">
-              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#1F2E2D]/30 mb-3">Best for</p>
+            <div className="bg-white border border-[#000000]/10 rounded-[10px] p-5">
+              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#000000]/30 mb-3">Best for</p>
               <ul className="space-y-1.5">
                 {technique.bestFor.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-[#1F2E2D]/60">
+                  <li key={item} className="flex items-center gap-2 text-xs text-[#000000]/60">
                     <span className="w-1 h-1 rounded-full bg-[#205C49] shrink-0" />
                     {item}
                   </li>
@@ -97,20 +97,20 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
               </ul>
             </div>
 
-            <div className="bg-white border border-[#1F2E2D]/10 rounded-[10px] p-5">
-              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#1F2E2D]/30 mb-3">Avoid</p>
+            <div className="bg-white border border-[#000000]/10 rounded-[10px] p-5">
+              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#000000]/30 mb-3">Avoid</p>
               <ul className="space-y-1.5">
                 {technique.avoid.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-xs text-[#1F2E2D]/35">
-                    <span className="w-1 h-1 rounded-full bg-[#1F2E2D]/20 shrink-0 mt-1.5" />
+                  <li key={item} className="flex items-start gap-2 text-xs text-[#000000]/35">
+                    <span className="w-1 h-1 rounded-full bg-[#000000]/20 shrink-0 mt-1.5" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-white border border-[#1F2E2D]/10 rounded-[10px] p-5">
-              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#1F2E2D]/30 mb-3">All Techniques</p>
+            <div className="bg-white border border-[#000000]/10 rounded-[10px] p-5">
+              <p className="text-[0.55rem] tracking-[0.2em] uppercase text-[#000000]/30 mb-3">All Techniques</p>
               <div className="space-y-0.5">
                 {panTechniques.map((t) => (
                   <Link
@@ -119,7 +119,7 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
                     className={`block text-xs px-2 py-1.5 rounded-md transition-colors ${
                       t.slug === slug
                         ? "bg-[#205C49]/10 text-[#205C49]"
-                        : "text-[#1F2E2D]/40 hover:text-[#1F2E2D] hover:bg-[#1F2E2D]/5"
+                        : "text-[#000000]/40 hover:text-[#000000] hover:bg-[#000000]/5"
                     }`}
                   >
                     {t.pan}
@@ -132,7 +132,7 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pb-12">
-        <Link href="/pan-techniques" className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#1F2E2D]/30 hover:text-[#205C49] transition-colors">
+        <Link href="/pan-techniques" className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#000000]/30 hover:text-[#205C49] transition-colors">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M8.5 2L3.5 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

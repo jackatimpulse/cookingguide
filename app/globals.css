@@ -75,9 +75,9 @@
 :root {
   --bg: #F4F5EF;
   --surface: #ffffff;
-  --dark: #1F2E2D;
+  --dark: #000000;
   --accent: #205C49;
-  --border: #1F2E2D1A;
+  --border: #0000001A;
 }
 
 @theme inline {

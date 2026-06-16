@@ -31,14 +31,14 @@ export default function TempCard({ entry }: { entry: TempEntry }) {
   const pct = Math.min(100, Math.max(2, ((entry.tempF - 80) / (450 - 80)) * 100));
 
   return (
-    <div className={`bg-white border rounded-[10px] overflow-hidden transition-all ${open ? "border-[#1F2E2D]/15 shadow-md" : "border-[#1F2E2D]/10 hover:border-[#1F2E2D]/20 hover:shadow-sm"}`}>
+    <div className={`bg-white border rounded-[10px] overflow-hidden transition-all ${open ? "border-[#000000]/15 shadow-md" : "border-[#000000]/10 hover:border-[#000000]/20 hover:shadow-sm"}`}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-left px-5 pt-5 pb-4 flex flex-col gap-3 focus:outline-none group"
         aria-expanded={open}
       >
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-heading text-base font-light text-[#1F2E2D] group-hover:text-[#205C49] transition-colors leading-snug">
+          <h3 className="font-heading text-base font-light text-[#000000] group-hover:text-[#205C49] transition-colors leading-snug">
             {entry.task}
           </h3>
           <div className="shrink-0 flex items-center gap-2">
@@ -47,14 +47,14 @@ export default function TempCard({ entry }: { entry: TempEntry }) {
             </span>
             <svg
               width="14" height="14" viewBox="0 0 14 14" fill="none"
-              className={`shrink-0 text-[#1F2E2D]/20 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+              className={`shrink-0 text-[#000000]/20 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
             >
               <path d="M2.5 5l4.5 4 4.5-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </div>
 
-        <div className="w-full h-1 bg-[#1F2E2D]/8 rounded-full overflow-hidden">
+        <div className="w-full h-1 bg-[#000000]/8 rounded-full overflow-hidden">
           <div
             className={`h-full rounded-full transition-opacity duration-200 ${BAR_COLOR[entry.category]} ${open ? "opacity-100" : "opacity-50 group-hover:opacity-80"}`}
             style={{ width: `${pct}%` }}
@@ -62,7 +62,7 @@ export default function TempCard({ entry }: { entry: TempEntry }) {
         </div>
 
         {!open && (
-          <p className="text-[0.6rem] tracking-[0.15em] uppercase text-[#1F2E2D]/30">
+          <p className="text-[0.6rem] tracking-[0.15em] uppercase text-[#000000]/30">
             {entry.tempC}°C · tap to expand
           </p>
         )}
@@ -70,11 +70,11 @@ export default function TempCard({ entry }: { entry: TempEntry }) {
 
       {open && (
         <div className="px-5 pb-5 flex flex-col gap-3">
-          <p className="text-[0.55rem] tracking-[0.15em] uppercase text-[#1F2E2D]/30">{entry.tempF}°F · {entry.tempC}°C</p>
-          <p className="text-sm text-[#1F2E2D]/60 leading-relaxed">{entry.why}</p>
+          <p className="text-[0.55rem] tracking-[0.15em] uppercase text-[#000000]/30">{entry.tempF}°F · {entry.tempC}°C</p>
+          <p className="text-sm text-[#000000]/60 leading-relaxed">{entry.why}</p>
           <div className={`border rounded-md px-3 py-2.5 ${CATEGORY_BG[entry.category]}`}>
-            <p className="text-[0.6rem] tracking-[0.15em] uppercase text-[#1F2E2D]/40 mb-1">Impulse tip</p>
-            <p className="text-xs text-[#1F2E2D]/60 leading-relaxed">{entry.tips}</p>
+            <p className="text-[0.6rem] tracking-[0.15em] uppercase text-[#000000]/40 mb-1">Impulse tip</p>
+            <p className="text-xs text-[#000000]/60 leading-relaxed">{entry.tips}</p>
           </div>
         </div>
       )}

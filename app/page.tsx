@@ -35,21 +35,21 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-20 border-b border-[#1F2E2D]/10">
+      <section className="max-w-7xl mx-auto px-6 pt-16 pb-20 border-b border-[#000000]/10">
         <p className="text-xs tracking-[0.25em] uppercase text-[#205C49] mb-5">
           Impulse Cooking Guide
         </p>
-        <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] max-w-4xl text-[#1F2E2D]">
+        <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] max-w-4xl text-[#000000]">
           Cook with precision.<br />
-          <span className="text-[#1F2E2D]/30">Not guesswork.</span>
+          <span className="text-[#000000]/30">Not guesswork.</span>
         </h1>
-        <p className="mt-6 text-[#1F2E2D]/60 text-sm md:text-base max-w-lg leading-relaxed">
+        <p className="mt-6 text-[#000000]/60 text-sm md:text-base max-w-lg leading-relaxed">
           The Impulse cooktop delivers up to 10,000W and single-digit temperature precision.
           This guide teaches you how to use both — from an 88°F chocolate temper to a 450°F sear.
         </p>
 
         {/* Stats */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1F2E2D]/10">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#000000]/10">
           {[
             { value: "10,000W", label: "Peak power per burner" },
             { value: "±1°F", label: "Temperature accuracy" },
@@ -57,8 +57,8 @@ export default function Home() {
             { value: "90–450°F", label: "Precision range" },
           ].map(({ value, label }) => (
             <div key={label} className="bg-[#F4F5EF] px-4 py-4 md:px-6 md:py-5">
-              <p className="font-heading text-xl md:text-3xl font-light text-[#1F2E2D]">{value}</p>
-              <p className="text-[0.6rem] md:text-xs text-[#1F2E2D]/40 mt-1 leading-snug">{label}</p>
+              <p className="font-heading text-xl md:text-3xl font-light text-[#000000]">{value}</p>
+              <p className="text-[0.6rem] md:text-xs text-[#000000]/40 mt-1 leading-snug">{label}</p>
             </div>
           ))}
         </div>
@@ -71,24 +71,24 @@ export default function Home() {
             <Link
               key={s.href}
               href={s.href}
-              className="group bg-white hover:bg-white border border-[#1F2E2D]/10 hover:border-[#205C49]/30 hover:shadow-md transition-all rounded-[10px] p-6 md:p-8 flex flex-col"
+              className="group bg-white hover:bg-white border border-[#000000]/10 hover:border-[#205C49]/30 hover:shadow-md transition-all rounded-[10px] p-6 md:p-8 flex flex-col"
             >
               <div className="flex items-start justify-between mb-6">
                 <span className="text-[0.55rem] tracking-[0.3em] uppercase text-[#205C49]">{s.number}</span>
                 <svg
                   width="16" height="16" viewBox="0 0 16 16" fill="none"
-                  className="text-[#1F2E2D]/20 group-hover:text-[#205C49] transition-colors"
+                  className="text-[#000000]/20 group-hover:text-[#205C49] transition-colors"
                 >
                   <path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h2 className="font-heading text-2xl font-light mb-3 text-[#1F2E2D] group-hover:text-[#205C49] transition-colors">
+              <h2 className="font-heading text-2xl font-light mb-3 text-[#000000] group-hover:text-[#205C49] transition-colors">
                 {s.label}
               </h2>
-              <p className="text-sm text-[#1F2E2D]/50 leading-relaxed mb-6 flex-1">{s.description}</p>
-              <div className="border-t border-[#1F2E2D]/8 pt-4 flex flex-wrap gap-1.5">
+              <p className="text-sm text-[#000000]/50 leading-relaxed mb-6 flex-1">{s.description}</p>
+              <div className="border-t border-[#000000]/8 pt-4 flex flex-wrap gap-1.5">
                 {s.guides.map((g) => (
-                  <span key={g} className="text-[0.55rem] tracking-[0.1em] uppercase px-2 py-1 bg-[#F4F5EF] text-[#1F2E2D]/40 rounded-md">
+                  <span key={g} className="text-[0.55rem] tracking-[0.1em] uppercase px-2 py-1 bg-[#F4F5EF] text-[#000000]/40 rounded-md">
                     {g}
                   </span>
                 ))}
@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="bg-[#1F2E2D] rounded-[10px] p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="bg-[#000000] rounded-[10px] p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="text-[0.65rem] tracking-[0.25em] uppercase text-[#F4F5EF]/40 mb-2">New to Impulse?</p>
             <h3 className="font-heading text-2xl md:text-3xl font-light text-[#F4F5EF]">Start with the Basics.</h3>
@@ -110,7 +110,7 @@ export default function Home() {
           </div>
           <Link
             href="/basics"
-            className="shrink-0 bg-[#F4F5EF] text-[#1F2E2D] text-xs tracking-widest uppercase px-6 py-3 rounded-md hover:bg-white transition-colors font-medium"
+            className="shrink-0 bg-[#F4F5EF] text-[#000000] text-xs tracking-widest uppercase px-6 py-3 rounded-md hover:bg-white transition-colors font-medium"
           >
             Get Started
           </Link>

@@ -51,14 +51,14 @@ export default function TemperatureGuidePage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <p className="text-xs tracking-[0.25em] uppercase text-[#205C49] mb-3">02</p>
-      <h1 className="font-heading text-3xl md:text-4xl font-light mb-3 text-[#1F2E2D]">Temperature Guide</h1>
-      <p className="text-[#1F2E2D]/50 text-sm max-w-xl mb-4">
+      <h1 className="font-heading text-3xl md:text-4xl font-light mb-3 text-[#000000]">Temperature Guide</h1>
+      <p className="text-[#000000]/50 text-sm max-w-xl mb-4">
         Every cooking task has an ideal temperature. The Impulse holds yours to within ±1°F.
         Click a category to filter.
       </p>
 
       {/* Clickable scale legend */}
-      <div className="flex items-stretch gap-0 mb-10 mt-8 bg-white border border-[#1F2E2D]/10 rounded-[10px] overflow-x-auto overflow-y-hidden max-w-2xl">
+      <div className="flex items-stretch gap-0 mb-10 mt-8 bg-white border border-[#000000]/10 rounded-[10px] overflow-x-auto overflow-y-hidden max-w-2xl">
         {CATEGORIES.map((cat) => {
           const isActive = active === cat;
           const isDimmed = active !== null && !isActive;
@@ -66,14 +66,14 @@ export default function TemperatureGuidePage() {
             <button
               key={cat}
               onClick={() => setActive(isActive ? null : cat)}
-              className={`shrink-0 flex-1 min-w-[72px] text-left px-3 py-4 transition-all focus:outline-none group border-r last:border-r-0 border-[#1F2E2D]/8 ${
+              className={`shrink-0 flex-1 min-w-[72px] text-left px-3 py-4 transition-all focus:outline-none group border-r last:border-r-0 border-[#000000]/8 ${
                 isDimmed ? "opacity-30" : "opacity-100"
               } ${isActive ? CATEGORY_ACTIVE_BORDER[cat] : ""}`}
               title={isActive ? "Show all" : `Filter: ${cat}`}
             >
               <div className={`h-0.5 w-full rounded-full mb-2.5 ${CATEGORY_BAR[cat]} ${isActive ? "opacity-100" : "opacity-40 group-hover:opacity-80"} transition-opacity`} />
               <p className={`text-[0.55rem] tracking-[0.15em] uppercase font-medium ${CATEGORY_COLOR[cat]}`}>{cat}</p>
-              <p className="text-[0.5rem] text-[#1F2E2D]/30 mt-0.5 hidden sm:block">{CATEGORY_RANGE[cat]}</p>
+              <p className="text-[0.5rem] text-[#000000]/30 mt-0.5 hidden sm:block">{CATEGORY_RANGE[cat]}</p>
             </button>
           );
         })}
@@ -87,7 +87,7 @@ export default function TemperatureGuidePage() {
           </span>
           <button
             onClick={() => setActive(null)}
-            className="text-[0.6rem] tracking-widest uppercase text-[#1F2E2D]/40 hover:text-[#1F2E2D] transition-colors border border-[#1F2E2D]/15 px-2 py-0.5 rounded-md"
+            className="text-[0.6rem] tracking-widest uppercase text-[#000000]/40 hover:text-[#000000] transition-colors border border-[#000000]/15 px-2 py-0.5 rounded-md"
           >
             Clear
           </button>
@@ -98,10 +98,10 @@ export default function TemperatureGuidePage() {
       <div className="space-y-14">
         {visibleCategories.map((cat) => (
           <section key={cat}>
-            <div className="flex items-baseline gap-4 mb-5 border-b border-[#1F2E2D]/10 pb-4">
+            <div className="flex items-baseline gap-4 mb-5 border-b border-[#000000]/10 pb-4">
               <h2 className={`font-heading text-xl font-light ${CATEGORY_COLOR[cat]}`}>{cat}</h2>
-              <span className="text-sm text-[#1F2E2D]/30">{CATEGORY_RANGE[cat]}</span>
-              <span className="text-xs text-[#1F2E2D]/25 ml-auto">{grouped[cat].length} entries</span>
+              <span className="text-sm text-[#000000]/30">{CATEGORY_RANGE[cat]}</span>
+              <span className="text-xs text-[#000000]/25 ml-auto">{grouped[cat].length} entries</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
               {grouped[cat].map((entry) => (
