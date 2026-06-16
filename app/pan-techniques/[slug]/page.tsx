@@ -22,10 +22,10 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
   return (
     <article>
       {/* Hero */}
-      <div className="relative h-[40vh] min-h-[300px] overflow-hidden">
+      <div className="relative h-[38vh] min-h-[240px] md:min-h-[300px] overflow-hidden">
         <Image src={technique.heroImage} alt={technique.title} fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1F2E2D]/80 via-[#1F2E2D]/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 pb-10">
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 md:px-6 pb-6 md:pb-10">
           <div className="flex items-center gap-3 mb-3">
             <Link href="/pan-techniques" className="text-[0.6rem] tracking-widest uppercase text-white/40 hover:text-white transition-colors">
               Pan Techniques
@@ -33,14 +33,14 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
             <span className="text-white/20">/</span>
             <span className="text-[0.6rem] tracking-widest uppercase text-white/60">{technique.pan}</span>
           </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-light text-white max-w-2xl">{technique.title}</h1>
-          <p className="text-white/50 mt-2 text-sm max-w-xl">{technique.subtitle}</p>
+          <h1 className="font-heading text-2xl md:text-4xl font-light text-white max-w-2xl">{technique.title}</h1>
+          <p className="text-white/50 mt-1.5 text-xs md:text-sm max-w-xl hidden sm:block">{technique.subtitle}</p>
         </div>
       </div>
 
       {/* Meta bar */}
       <div className="border-b border-[#1F2E2D]/10 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex gap-8 overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex gap-5 md:gap-8 overflow-x-auto scrollbar-none">
           {[
             { label: "Pan", value: technique.pan },
             { label: "Temperature", value: `${technique.tempF}°F`, accent: true },
@@ -55,7 +55,7 @@ export default async function PanTechniqueDetailPage({ params }: { params: Promi
       </div>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 md:gap-12">
         {/* Main */}
         <div className="max-w-2xl">
           <p className="text-[#1F2E2D]/50 text-sm leading-relaxed mb-10">{technique.description}</p>

@@ -22,7 +22,7 @@ export default async function BasicsDetailPage({ params }: { params: Promise<{ s
   const next = basics[index + 1];
 
   return (
-    <article className="max-w-7xl mx-auto px-6 py-12">
+    <article className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-16">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 mb-6">

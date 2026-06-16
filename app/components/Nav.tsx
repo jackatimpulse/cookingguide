@@ -48,7 +48,7 @@ export default function Nav() {
         </nav>
 
         <button
-          className="md:hidden text-[#1F2E2D]/50 hover:text-[#1F2E2D] shrink-0"
+          className="md:hidden text-[#1F2E2D]/50 hover:text-[#1F2E2D] shrink-0 p-2 -mr-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -63,13 +63,13 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-[#1F2E2D]/10 bg-[#F4F5EF] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-[#1F2E2D]/10 bg-[#F4F5EF] px-6 py-5 flex flex-col gap-1">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="text-xs tracking-widest uppercase text-[#1F2E2D]/50 hover:text-[#1F2E2D] transition-colors"
+              className="text-sm tracking-widest uppercase text-[#1F2E2D]/50 hover:text-[#1F2E2D] transition-colors py-3 border-b border-[#1F2E2D]/8 last:border-0"
             >
               {label}
             </Link>

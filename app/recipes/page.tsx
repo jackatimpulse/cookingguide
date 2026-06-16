@@ -15,7 +15,7 @@ export default function RecipesPage() {
 
       {/* Featured */}
       <Link href={`/recipes/${featured.slug}`} className="group block mb-4">
-        <div className="relative aspect-[21/9] overflow-hidden rounded-[10px]">
+        <div className="relative aspect-[4/3] sm:aspect-[16/7] md:aspect-[21/9] overflow-hidden rounded-[10px]">
           <Image
             src={featured.heroImage}
             alt={featured.title}
@@ -24,13 +24,13 @@ export default function RecipesPage() {
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1F2E2D]/80 via-[#1F2E2D]/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-8">
+          <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8">
             <div className="flex items-center gap-3 mb-2">
               <TempBadge tempF={featured.tempF} mode={featured.mode} />
               <span className="text-[0.6rem] tracking-widest uppercase text-white/50">{featured.difficulty}</span>
             </div>
-            <h2 className="font-heading text-2xl md:text-3xl font-light text-white">{featured.title}</h2>
-            <p className="text-sm text-white/60 mt-1.5 max-w-lg">{featured.subtitle}</p>
+            <h2 className="font-heading text-xl md:text-3xl font-light text-white">{featured.title}</h2>
+            <p className="text-xs md:text-sm text-white/60 mt-1.5 max-w-lg hidden sm:block">{featured.subtitle}</p>
           </div>
         </div>
       </Link>

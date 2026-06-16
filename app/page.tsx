@@ -39,26 +39,26 @@ export default function Home() {
         <p className="text-xs tracking-[0.25em] uppercase text-[#205C49] mb-5">
           Impulse Cooking Guide
         </p>
-        <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] max-w-4xl text-[#1F2E2D]">
+        <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] max-w-4xl text-[#1F2E2D]">
           Cook with precision.<br />
           <span className="text-[#1F2E2D]/30">Not guesswork.</span>
         </h1>
-        <p className="mt-6 text-[#1F2E2D]/60 text-base max-w-lg leading-relaxed">
+        <p className="mt-6 text-[#1F2E2D]/60 text-sm md:text-base max-w-lg leading-relaxed">
           The Impulse cooktop delivers up to 10,000W and single-digit temperature precision.
           This guide teaches you how to use both — from an 88°F chocolate temper to a 450°F sear.
         </p>
 
         {/* Stats */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1F2E2D]/10">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1F2E2D]/10">
           {[
             { value: "10,000W", label: "Peak power per burner" },
             { value: "±1°F", label: "Temperature accuracy" },
             { value: "40s", label: "Time to boil water" },
             { value: "90–450°F", label: "Precision range" },
           ].map(({ value, label }) => (
-            <div key={label} className="bg-[#F4F5EF] px-6 py-5">
-              <p className="font-heading text-2xl md:text-3xl font-light text-[#1F2E2D]">{value}</p>
-              <p className="text-xs text-[#1F2E2D]/40 mt-1">{label}</p>
+            <div key={label} className="bg-[#F4F5EF] px-4 py-4 md:px-6 md:py-5">
+              <p className="font-heading text-xl md:text-3xl font-light text-[#1F2E2D]">{value}</p>
+              <p className="text-[0.6rem] md:text-xs text-[#1F2E2D]/40 mt-1 leading-snug">{label}</p>
             </div>
           ))}
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
             <Link
               key={s.href}
               href={s.href}
-              className="group bg-white hover:bg-white border border-[#1F2E2D]/10 hover:border-[#205C49]/30 hover:shadow-md transition-all rounded-[10px] p-8 flex flex-col"
+              className="group bg-white hover:bg-white border border-[#1F2E2D]/10 hover:border-[#205C49]/30 hover:shadow-md transition-all rounded-[10px] p-6 md:p-8 flex flex-col"
             >
               <div className="flex items-start justify-between mb-6">
                 <span className="text-[0.55rem] tracking-[0.3em] uppercase text-[#205C49]">{s.number}</span>

@@ -24,10 +24,10 @@ export default async function RecipeDetailPage({ params }: { params: Promise<{ s
   return (
     <article>
       {/* Hero */}
-      <div className="relative h-[50vh] min-h-[380px] overflow-hidden">
+      <div className="relative h-[40vh] min-h-[260px] md:min-h-[380px] overflow-hidden">
         <Image src={recipe.heroImage} alt={recipe.title} fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1F2E2D]/80 via-[#1F2E2D]/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 pb-10">
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 md:px-6 pb-6 md:pb-10">
           <div className="flex items-center gap-3 mb-3">
             <Link href="/recipes" className="text-[0.6rem] tracking-widest uppercase text-white/40 hover:text-white transition-colors">
               Recipes
@@ -38,14 +38,14 @@ export default async function RecipeDetailPage({ params }: { params: Promise<{ s
               <span className="text-[0.55rem] text-white/60">{recipe.mode} mode</span>
             </span>
           </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-light text-white max-w-2xl">{recipe.title}</h1>
-          <p className="text-white/50 mt-2 text-sm max-w-xl">{recipe.subtitle}</p>
+          <h1 className="font-heading text-2xl md:text-4xl font-light text-white max-w-2xl">{recipe.title}</h1>
+          <p className="text-white/50 mt-1.5 text-xs md:text-sm max-w-xl hidden sm:block">{recipe.subtitle}</p>
         </div>
       </div>
 
       {/* Meta bar */}
       <div className="border-b border-[#1F2E2D]/10 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex gap-8 overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex gap-5 md:gap-8 overflow-x-auto scrollbar-none">
           {[
             { label: "Set temp", value: `${recipe.tempF}°F`, accent: true },
             { label: "Mode", value: `${recipe.mode}` },
@@ -64,7 +64,7 @@ export default async function RecipeDetailPage({ params }: { params: Promise<{ s
       </div>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 md:gap-12">
         {/* Left: ingredients */}
         <div>
           <div className="sticky top-20 space-y-4">

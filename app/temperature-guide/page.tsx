@@ -58,7 +58,7 @@ export default function TemperatureGuidePage() {
       </p>
 
       {/* Clickable scale legend */}
-      <div className="flex items-stretch gap-0 mb-10 mt-8 max-w-2xl bg-white border border-[#1F2E2D]/10 rounded-[10px] overflow-hidden">
+      <div className="flex items-stretch gap-0 mb-10 mt-8 bg-white border border-[#1F2E2D]/10 rounded-[10px] overflow-x-auto overflow-y-hidden max-w-2xl">
         {CATEGORIES.map((cat) => {
           const isActive = active === cat;
           const isDimmed = active !== null && !isActive;
@@ -66,14 +66,14 @@ export default function TemperatureGuidePage() {
             <button
               key={cat}
               onClick={() => setActive(isActive ? null : cat)}
-              className={`flex-1 text-left px-3 py-3 transition-all focus:outline-none group border-r last:border-r-0 border-[#1F2E2D]/8 ${
+              className={`shrink-0 flex-1 min-w-[72px] text-left px-3 py-4 transition-all focus:outline-none group border-r last:border-r-0 border-[#1F2E2D]/8 ${
                 isDimmed ? "opacity-30" : "opacity-100"
               } ${isActive ? CATEGORY_ACTIVE_BORDER[cat] : ""}`}
               title={isActive ? "Show all" : `Filter: ${cat}`}
             >
-              <div className={`h-0.5 w-full rounded-full mb-2 ${CATEGORY_BAR[cat]} ${isActive ? "opacity-100" : "opacity-40 group-hover:opacity-80"} transition-opacity`} />
-              <p className={`text-[0.5rem] tracking-[0.15em] uppercase font-medium ${CATEGORY_COLOR[cat]}`}>{cat}</p>
-              <p className="text-[0.5rem] text-[#1F2E2D]/30 mt-0.5">{CATEGORY_RANGE[cat]}</p>
+              <div className={`h-0.5 w-full rounded-full mb-2.5 ${CATEGORY_BAR[cat]} ${isActive ? "opacity-100" : "opacity-40 group-hover:opacity-80"} transition-opacity`} />
+              <p className={`text-[0.55rem] tracking-[0.15em] uppercase font-medium ${CATEGORY_COLOR[cat]}`}>{cat}</p>
+              <p className="text-[0.5rem] text-[#1F2E2D]/30 mt-0.5 hidden sm:block">{CATEGORY_RANGE[cat]}</p>
             </button>
           );
         })}

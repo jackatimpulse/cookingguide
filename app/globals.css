@@ -130,6 +130,13 @@ h4, h5, h6 {
   letter-spacing: -0.005em;
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   background-color: #205C49;
   color: #F4F5EF;
